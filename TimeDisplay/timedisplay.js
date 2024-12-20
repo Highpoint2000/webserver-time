@@ -1,9 +1,9 @@
 (() => {
     ////////////////////////////////////////////////////////////
     ///                                                      ///
-    ///  TIME DISPLAY SCRIPT FOR FM-DX-WEBSERVER (V2.5e)     ///
+    ///  TIME DISPLAY SCRIPT FOR FM-DX-WEBSERVER (V2.5f)     ///
     ///                                                      ///
-    ///  by Highpoint                last update: 19.11.24   ///
+    ///  by Highpoint                last update: 20.12.24   ///
     ///                                                      ///
     ///  https://github.com/Highpoint2000/webserver-time     ///
 	///                                                      ///
@@ -16,11 +16,13 @@
 
     ////////////////////////////////////////////////////////////
 
-    const plugin_version = '2.5e';
+    const plugin_version = '2.5f';
 	const ipApiUrl = 'https://api.ipify.org?format=json';
+	const corsAnywhereUrl = 'https://cors-proxy.de:13128/';
 	
     let initialDisplayState = '0';
     let timeDisplayInline = JSON.parse(localStorage.getItem("timeDisplayInline")) ?? true;
+	
 	let isTuneAuthenticated;
 	let IPadress;
 
@@ -48,7 +50,7 @@
 		// Check if required localStorage items are present
 		const timedisplaytoastinfo = localStorage.getItem("timedisplaytoastinfo");
 		setTimeout(() => {
-			if (timedisplaytoastinfo === null && IPadress !== '79.246.117.87' && IPadress !== '89.58.28.164') {
+			if (timedisplaytoastinfo === null && IPadress !== '89.58.28.164') {
 				sendToast('info important', 'Time Display', `Use drag & drop to move the time display to the desired position, change the time selection (UTC, LOCAL and/or WORLD TIME) by briefly clicking on it, hold down the display to change the design (horizontal or vertical) and use the mouse wheel to change the time display to adjust the correct size..`, true, false);
 				localStorage.setItem("timedisplaytoastinfo", true);
 			}
@@ -77,7 +79,7 @@
     // Fetch UTC offset from GeoNames API and save to localStorage
     function fetchUtcOffset(savedOffsetKey) {
         if (LAT && LON) {
-            fetch(`http://api.geonames.org/timezoneJSON?lat=${LAT}&lng=${LON}&username=highpoint`)
+            fetch(`${corsAnywhereUrl}http://api.geonames.org/timezoneJSON?lat=${LAT}&lng=${LON}&username=highpoint`)
                 .then(response => response.json())
                 .then(data => {
                     if (data) {
