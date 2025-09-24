@@ -17,7 +17,6 @@
     ////////////////////////////////////////////////////////////
 
     const plugin_version = '2.5g';
-	const ipApiUrl = 'https://api.ipify.org?format=json';
 	const corsAnywhereUrl = 'https://cors-proxy.de:13128/';
 	
     let initialDisplayState = '0';
