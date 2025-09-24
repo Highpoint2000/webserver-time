@@ -1,9 +1,9 @@
 (() => {
     ////////////////////////////////////////////////////////////
     ///                                                      ///
-    ///  TIME DISPLAY SCRIPT FOR FM-DX-WEBSERVER (V2.5f)     ///
+    ///  TIME DISPLAY SCRIPT FOR FM-DX-WEBSERVER (V2.5g)     ///
     ///                                                      ///
-    ///  by Highpoint                last update: 20.12.24   ///
+    ///  by Highpoint                last update: 24.09.25   ///
     ///                                                      ///
     ///  https://github.com/Highpoint2000/webserver-time     ///
 	///                                                      ///
@@ -16,7 +16,7 @@
 
     ////////////////////////////////////////////////////////////
 
-    const plugin_version = '2.5f';
+    const plugin_version = '2.5g';
 	const ipApiUrl = 'https://api.ipify.org?format=json';
 	const corsAnywhereUrl = 'https://cors-proxy.de:13128/';
 	
@@ -28,11 +28,10 @@
 
 	async function fetchIp() {
 		try {
-			const ipApiUrl = 'https://api.ipify.org?format=json';
+			const ipApiUrl = 'https://icanhazip.com'; // API to fetch own IP address
 			const response = await fetch(ipApiUrl);
-			const data = await response.json();
-			IPadress = data.ip;
-			// console.log('Your IP address is:', IPadress); // IP-Adresse hier verfügbar
+			const IPadress = await response.text(); // IP is returned as plain text
+			console.log('Your IP address is:', IPadress.trim()); // Log the IP address (trimmed)
 		} catch (error) {
 			console.error('Error fetching your IP address:', error);
 		}
