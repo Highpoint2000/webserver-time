@@ -35,7 +35,14 @@ The following variables can be changed in the header of the screenshot.js:
 - A switch in the script header can be used to turn the time display on mobile devices and the date on and off
 - When you log in as admin, an update check occurs
 
-## History:
+## Contact
+
+If you have any questions, would like to report problems, or have suggestions for improvement, please feel free to contact me! You can reach me by email at highpoint2000@googlemail.com. I look forward to hearing from you!
+
+<a href="https://www.buymeacoffee.com/Highpoint" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+<details>
+<summary>History</summary>
 
 ### Version 2.5f
 
